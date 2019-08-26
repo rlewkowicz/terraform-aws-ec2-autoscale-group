@@ -56,7 +56,7 @@ resource "aws_launch_template" "default" {
   tags = "${module.label.tags}"
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
 
@@ -102,6 +102,6 @@ resource "aws_autoscaling_group" "default" {
   tags = ["${data.null_data_source.tags_as_list_of_maps.*.outputs}"]
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
